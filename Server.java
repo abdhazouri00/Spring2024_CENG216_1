@@ -7,8 +7,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 import java.awt.Color;
 
 //Abdullah Hazuri 220218341 START
@@ -139,9 +137,9 @@ class UserHandler implements Runnable {
               user, userPrivate);
         }
 
-        // changing color (test)
+        // changing color (test) not done yet
       } else if (message.charAt(0) == '#') {
-        user.changeColor(message);
+        user.changeColor(message); //لا تشرح
         // update color for all other users
         this.server.broadcastAllUsers();
       } else {
@@ -179,24 +177,16 @@ class User {
     this.client = client;
     this.nickname = name;
     this.userId = nbUser;
-    this.color = ColorInt.getColor(this.userId);
     nbUser += 1;
   }
 
-  // change color user
-  //Code snippet got from stackoverflow regex color question
-  //used regex to filter color and check if acceptable and suitable for terminal
-  
+  //change color user (test)
+  //Code snippet got from stackoverflow 
+  //had no time to finish it
   public void changeColor(String hexColor) {
-    // check if it's a valid hexColor
-    Pattern colorPattern = Pattern.compile("#([0-9a-fA-F]{6})");
-    Matcher m = colorPattern.matcher(hexColor);
-    if (m.matches()) {
-      this.color = hexColor;
-      this.getOutStream().println("<b>Color changed successfully</b> " + this.toString());
-      return;
-    }
-    this.getOutStream().println("<b>Failed to change color</b>");
+    
+      this.color = hexColor; //لا تشرح
+      this.getOutStream().println("<b>Color changed successfully</b> " + this.toString()); //still working on it , not finished 
   }
 
   
@@ -212,34 +202,34 @@ class User {
     return this.nickname;
   }
 
-  // print user with his color
+  // print user with his color not done yet
   public String toString(){
 
-    return "<u><span style='color:"+ this.color
+    return "<u><span style='color:"+ this.color //لا تشرح
       +"'>" + this.getNickname() + "</span></u>";
 
   }
 }
 
-class ColorInt {
-    public static String[] mColors = {
-            "#3079ab", // dark blue
-            "#e15258", // red
-            "#f9845b", // orange
-            "#7d669e", // purple
-            "#53bbb4", // aqua
-            "#51b46d", // green
-            "#e0ab18", // mustard
-            "#f092b0", // pink
-            "#e8d174", // yellow
-            "#e39e54", // orange
-            "#d64d4d", // red
-            "#4d7358", // green
-    };
+// class ColorInt {
+//     public static String[] mColors = {
+//             "#3079ab", // dark blue
+//             "#e15258", // red
+//             "#f9845b", // orange
+//             "#7d669e", // purple
+//             "#53bbb4", // aqua
+//             "#51b46d", // green
+//             "#e0ab18", // mustard
+//             "#f092b0", // pink
+//             "#e8d174", // yellow
+//             "#e39e54", // orange
+//             "#d64d4d", // red
+//             "#4d7358", // green
+//     };
 
-    public static String getColor(int i) {
-        return mColors[i % mColors.length];
-    }
-}
+//     public static String getColor(int i) {
+//         return mColors[i % mColors.length];
+//     }
+// }
 
 //Abdallah alhendawi finish

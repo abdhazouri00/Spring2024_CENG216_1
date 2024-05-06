@@ -1,12 +1,11 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
-import java.io.StringReader;
 
 
 //Yazen arabi 220218394 START
@@ -82,7 +81,7 @@ class ReceivedMessagesHandler implements Runnable {
         System.out.println(
             "\nUSERS LIST: " +
             new ArrayList<String>(Arrays.asList(tmp.split(","))) + "\n"
-            );
+            ); //split tmp when find , using regex and adds to user list
       }else{
         try {
           System.out.println("\n" + getTagValue(tmp));
@@ -95,7 +94,7 @@ class ReceivedMessagesHandler implements Runnable {
 
   public static String getTagValue(String xml){
     return  xml.split(">")[2].split("<")[0] + xml.split("<span>")[1].split("</span>")[0];
-  }
+  }  
 
 }
 
