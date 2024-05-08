@@ -1,2 +1,8 @@
-Server is ran in the terminal using "java Server.java" command
-Client or Clients can run the chat app using "java Client.java" command
+Students :
+
+Abdullah Hazuri (220218341)
+Mohanad Qaid (210218301)
+Mohammed Ahmed (210218302)
+Abdallah Alhendawi (210218362)
+Yazen Arabi (220218394)
+Mohammed Ahmed Awadh (210218359)
